@@ -1,0 +1,31 @@
+@import "../../index.scss";
+
+.start-screen {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.start-screen__content {
+   text-align: center;
+}
+.start-screen__img {
+   width: 64px;
+   height: 64px;
+   object-fit: cover;
+}
+
+.start-screen__text {
+   font-size: 22px;
+   color: #808080;
+   line-height: 140%;
+}
+@media (max-height: 750px){
+   .start-screen{
+      max-height: 100%;
+   }
+}
+
+
+
+
