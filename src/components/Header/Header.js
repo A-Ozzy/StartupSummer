@@ -1,36 +1,20 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import gitIcon from '../../images/gitImg.png';
 import searchIcon from '../../images/search.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import './Header.scss';
 
-const Header = () => {
-   const [username, setUsername] = useState('');
-   const [data, setData] = useState([]);
+const Header = (props) => {
 
-   const getData = (name) => {
-      setUsername(name);
-
-      fetch(`https://api.github.com/users/${name}`)
-         .then(res => res.json())
-         .then((result) => {
-            setData(result);
-            
-         });
-      
-   };
-
+   const { username, getData, setLoading } = props;
+   
    const onEnterPress = (e) => {
       if (e.key === "Enter") {
          getData(e.target.value);
+         setLoading(true);
       }
    };
-
-   useEffect(() => {
-      console.log(data);
-
-   }, [data]);
 
    return (
       <div className='header'>
