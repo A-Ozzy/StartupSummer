@@ -9,8 +9,7 @@
    grid-template-columns: 1fr 2fr;
    column-gap: 25px;
 }
-.content__item {
-}
+
 .user-info {
    &__box {
    }
@@ -135,4 +134,25 @@
       font-size: 16px;
       line-height: 19px;
    }
+}
+.pagination {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   &__item {
+      font-size: 14px;
+      line-height: 21px;
+      color: #808080;
+      margin: 0px 16px 0px 0px;
+      cursor: pointer;
+   }
+   &__link {
+      padding: 2px 3px;
+      border-radius: 3px;
+   }
+}
+.pagination__item.active {
+   background: #0064eb;
+   color: rgba(255, 255, 255, 1);
+   border-radius: 3px;
 }

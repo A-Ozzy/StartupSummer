@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import './ContentScreen.scss';
 
 
 const ContentScreen = ({ data }) => {
    const [repos, setRepos] = useState([]);
+   const [currentPage, setCurrentPage] = useState(1);
+   const [reposPerPage] = useState(4);
+   
 
    const {
       avatar_url,
@@ -17,36 +21,41 @@ const ContentScreen = ({ data }) => {
    } = data;
 
    useEffect(() => {
-      
-       fetch(`${repos_url}`)
+
+      fetch(`${repos_url}`)
          .then(res => res.json())
          .then((result) => {
             setRepos(result);
-            
+
          })
          .catch((error) => {
-           console.log('error');
          });
-      
+
    }, [repos_url]);
-
-   
-
-   if (repos.length > 0) {
-      console.log(repos);
-   }
 
    const items = repos.map((item) => {
       const { id, name, html_url, description, } = item;
-      
+
       return (
          <li className='repos-info__item' key={id}>
-            <a href={html_url}className="repos-info__link" target="_blank">{name}</a>
+            <a href={html_url} className="repos-info__link" target="_blank">{name}</a>
             <div className="repos-info__descript">{description}</div>
          </li>
       )
    });
+
+   const handlePageClick = (data) => {
+      console.log(data.selected);
+
+   }
+
+   const lastReposIndex = currentPage * reposPerPage;
+   const firstReposIndex = lastReposIndex - reposPerPage;
    
+   const currentRepo = repos.slice(firstReposIndex, lastReposIndex);
+console.log(currentRepo);
+    
+
    return (
       <div className='content'>
          <div className="content__box">
@@ -68,8 +77,28 @@ const ContentScreen = ({ data }) => {
                <ul className="repos-info__list">
                   {items}
                </ul>
+               <ReactPaginate
+                  previousLabel={'<'}
+                  nextLabel={'>'}
+                  breakLabel={'...'}
+                  pageCount={repos.length}
+                  marginPagesDisplayed={1}
+                  pageRangeDisplayed={3}
+                  onPageChange={handlePageClick}
+                  containerClassName={'pagination'}
+                  pageClassName={'pagination__item'}
+                  pageLinkClassName={'pagination__link'}
+                  previousClassName={'pagination__item'}
+                  previousLinkName={'pagination__link'}
+                  naxtClassName={'pagination__item'}
+                  nextLinkClassName={'pagination__link'}
+                  breackClassName={'pagination__item'}
+                  breackLinkClassName={'pagination__link'}
+                  activeClassName={'active'}
+               />
             </div>
          </div>
+
       </div>
    );
 };
