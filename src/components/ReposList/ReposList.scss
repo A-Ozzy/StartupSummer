@@ -1,0 +1,114 @@
+@import "../../index.scss";
+
+.repos-info {
+   font-weight: 600;
+   font-size: 32px;
+   line-height: 130%;
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   &__list {
+      flex: 1 1 auto;
+   }
+   &__item {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 15px 0px 15px 10px;
+      margin: 0px 0px 24px 0px;
+   }
+   &__link {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      color: #0064eb;
+      margin: 0px 0px 16px 0px;
+      position: relative;
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: 0px;
+         left: 50%;
+         width: 0;
+         height: 3px;
+         background-color: #0064eb;
+         transition: all ease-in 0.2s;
+      }
+      &:hover {
+         &::after {
+            left: 0;
+            width: 100%;
+         }
+      }
+   }
+   &__descript {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+   }
+}
+.pagination {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   &__item {
+      font-size: 14px;
+      line-height: 21px;
+      color: #808080;
+      margin: 0px 16px 0px 0px;
+      cursor: pointer;
+   }
+   &__link {
+      padding: 2px 3px;
+      border-radius: 3px;
+   }
+}
+.pagination__item.active {
+   background: #0064eb;
+   color: rgba(255, 255, 255, 1);
+   border-radius: 3px;
+}
+.pagination__breack {
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 22px;
+   color: #808080;
+   text-align: center;
+}
+
+@media (max-width: 768px) {
+   .repos-info {
+      &__item {
+         padding: 10px;
+         margin: 0px 0px 10px 0px;
+      }
+      &__link {
+         font-weight: 500;
+         font-size: 22px;
+         line-height: 29px;
+         margin: 0px 0px 5px 0px;
+      }
+      &__descript {
+         font-size: 14px;
+         line-height: 16px;
+      }
+   }
+}
+
+@media (max-width: 460px) {
+   .repos-info {
+      &__item {
+         margin: 0px 0px 10px 0px;
+      }
+      &__link {
+         font-weight: 500;
+         font-size: 20px;
+         line-height: 20px;
+         margin: 0px 0px 5px 0px;
+      }
+      &__descript {
+         font-size: 12px;
+         line-height: 16px;
+      }
+   }
+}

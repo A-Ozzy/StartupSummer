@@ -1,11 +1,11 @@
 .container{
-   // overflow: hidden;
+   overflow: auto;
    margin: 0 auto;
    max-width: 1370px;
-   height: 740px;
+   height: 710px;
    background-color: rgba(229, 229, 229, 1);
 }
-@media (max-height: 740px){
+@media (max-height: 710px){
    .container{
       height: 100vh;
    }

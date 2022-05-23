@@ -1,11 +1,14 @@
 import React from "react";
-// import './spinner.css';
+import './spinner.scss';
 
 
 const Spinner = () => {
 
    return (
-      <div>LOADING....</div>
+      <div className="loader-body">
+         <div className="loader"></div>
+      </div>
+      
    );
 };
 

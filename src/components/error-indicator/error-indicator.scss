@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+@import "../../index.scss";
+
+.not-found {
+   height: 90%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.not-found__content {
+   text-align: center;
+}
+.not-found__img {
+   width: 60px;
+   height: 60px;
+   // object-fit: cover;
+}
+
+.not-found__text {
+   font-size: 22px;
+   color: #808080;
+   line-height: 140%;
+}
+@media (max-height: 750px){
+   .not-found{
+      max-height: 100%;
+   }
+}

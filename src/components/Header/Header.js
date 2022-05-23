@@ -1,18 +1,17 @@
-// import React, { useEffect } from 'react';
+
 import gitIcon from '../../images/gitImg.png';
 import searchIcon from '../../images/search.svg';
-// import { useState } from 'react';
 
 import './Header.scss';
 
 const Header = (props) => {
 
-   const { username, getData, setLoading } = props;
+   const { username, getData } = props;
    
    const onEnterPress = (e) => {
       if (e.key === "Enter") {
          getData(e.target.value);
-         setLoading(true);
+         
       }
    };
 

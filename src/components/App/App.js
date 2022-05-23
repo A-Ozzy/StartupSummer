@@ -19,19 +19,19 @@ const App = () => {
 
    const getData = (name) => {
       setUsername(name);
-
       fetch(`https://api.github.com/users/${name}`)
+         
          .then(res => res.json())
          .then((result) => {
             setData(result);
             setLoading(false);
+            setUsername('');
          })
          .catch((error) => {
             setError(true);
             setLoading(false);
-
+            console.log(error);
          });
-      setUsername('');  
    };
 
 
@@ -42,18 +42,15 @@ const App = () => {
    const startScreen = (hasData  && data.length <= 0) ? <StartScreen /> : null
    const content = !startScreen ? <ContentScreen data={data}/> : null
 
-   useEffect(() => {      
-
-   }, [loading]);
 
    return (
       <div className="App container">
-         <Header username={username} getData={getData} setLoading={setLoading} />
-         {errorMessage}
+         <Header username={username} getData={getData} />
+         {errorMessage} 
          {spinner}
          {content}
          {startScreen}
-         {/* <ContentScreen data={data}/> */}
+         
       </div>
    );
 };
