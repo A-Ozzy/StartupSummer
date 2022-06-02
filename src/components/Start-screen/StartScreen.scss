@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .start-screen {
-   height: 90%;
+   height: 650px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -20,12 +20,8 @@
    color: #808080;
    line-height: 140%;
 }
-@media (max-height: 750px){
-   .start-screen{
+@media (max-height: 750px) {
+   .start-screen {
       max-height: 100%;
    }
 }
-
-
-
-

@@ -32,6 +32,9 @@ const App = () => {
             setLoading(false);
             console.log(error);
          });
+      setUsername('');
+      console.log(username);
+      
    };
 
 
