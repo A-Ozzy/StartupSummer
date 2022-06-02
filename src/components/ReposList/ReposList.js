@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactPaginate from 'react-paginate';
 import EmptyList from '../EmptyList/EmptyList';
 import './ReposList.scss';
@@ -13,6 +13,7 @@ const ReposList = ({ data }) => {
       const endOffset = itemOffset + itemsPerPage;
       setCurrentItems(data.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(data.length / itemsPerPage));
+      
    }, [itemOffset, itemsPerPage, data]);
 
    const handlePageClick = (event) => {
@@ -29,7 +30,7 @@ const ReposList = ({ data }) => {
 
       return (
          <li className='repos-info__item' key={id}>
-            <a href={html_url} className="repos-info__link" target="_blank">{name}</a>
+            <a href={html_url} className="repos-info__link" target="blank">{name}</a>
             <div className="repos-info__descript">{description}</div>
          </li>
       )

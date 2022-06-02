@@ -1,10 +1,11 @@
 @import "../../index.scss";
 
 .not-found {
-   height: 100%;
+   min-height: 640px;
    display: flex;
    justify-content: center;
    align-items: center;
+   
 }
 .not-found__content {
    text-align: center;
@@ -12,7 +13,7 @@
 .not-found__img {
    width: 64px;
    height: 64px;
-   object-fit: cover;
+   object-fit: contain;
 }
 
 .not-found__text {
@@ -20,8 +21,8 @@
    color: #808080;
    line-height: 140%;
 }
-@media (max-height: 750px){
+@media (max-height: 710px){
    .not-found{
-      max-height: 100%;
+      min-height: 100%;
    }
 }

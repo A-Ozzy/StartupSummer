@@ -8,10 +8,8 @@ import './ContentScreen.scss';
 
 const ContentScreen = ({ data }) => {
 
-
    const [loading, setLoading] = useState(false);
    const [error, setError] = useState(false);
-
    const [repos, setRepos] = useState([]);
 
    const {
@@ -25,36 +23,21 @@ const ContentScreen = ({ data }) => {
    } = data;
 
    useEffect(() => {
-      setLoading(true)
+      setLoading(true);
       fetch(`${repos_url}`)
-
          .then(res => res.json())
          .then((result) => {
-
             setRepos(result);
-            setLoading(false)
-
+            setLoading(false);
          })
-         .catch((error) => {
+         .catch((err) => {
             setError(true);
-            
-            console.log(error);
-
+            console.log(err);
          });
-         setLoading(false)
+      setLoading(false);
+      setError(false);
    }, [repos_url]);
 
-
-   const items = repos.map((item) => {
-      const { id, name, html_url, description, } = item;
-
-      return (
-         <li className='repos-info__item' key={id}>
-            <a href={html_url} className="repos-info__link" target="_blank">{name}</a>
-            <div className="repos-info__descript">{description}</div>
-         </li>
-      )
-   });
 
    if (loading) {
       return <Spinner />

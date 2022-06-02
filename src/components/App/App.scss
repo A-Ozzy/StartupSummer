@@ -1,8 +1,8 @@
 .container{
-   overflow: hidden;
+   overflow: auto;
    margin: 0 auto;
    max-width: 1370px;
-   min-height: 710px;
+   height: 730px;
    background-color: rgba(229, 229, 229, 1);
 }
 @media (max-height: 710px){

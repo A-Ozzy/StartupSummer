@@ -6,15 +6,9 @@ import './Header.scss';
 
 const Header = (props) => {
 
-   const { username, getData } = props;
-   
-   const onEnterPress = (e) => {
-      if (e.key === "Enter") {
-         getData(e.target.value);
-         
-      }
-   };
+   const { onSubmit, onInputChange } = props;
 
+ 
    return (
       <div className='header'>
          <div className="header__box">
@@ -23,12 +17,16 @@ const Header = (props) => {
             </div>
             <div className="header__item header-input">
                <img className="header-input__icon" src={searchIcon} alt="icon" />
-               <input type="text"
-                  className="header-input__input"
-                  placeholder="Enter GitHub username"
-                  defaultValue={username}
-                  onKeyPress={onEnterPress}
-               />
+
+               <form onSubmit={onSubmit}>
+                  <input type="text"
+                     className="header-input__input"
+                     placeholder="Enter GitHub username"
+                     value={props.username}
+                     onChange={onInputChange}
+                  />
+               </form>
+
             </div>
 
          </div>
